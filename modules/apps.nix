@@ -45,7 +45,6 @@
     ];
 
     brews = [
-      "neovim"
       "jmeter"
     ];
 

@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ zsh ];
-
   programs.zsh = {
     enable = true;
     autocd = true;

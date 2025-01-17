@@ -16,6 +16,7 @@
     maven             # Build automation tool for Java projects
     gradle            # Build automation tool for multi-language projects
     sqlcmd            # CLI tool for SQL Server
+    quarkus           # CLI tool for Quarkus framework
 
     # Utilities
     ripgrep           # Fast search tool for recursively searching directories

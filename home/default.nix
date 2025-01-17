@@ -11,6 +11,7 @@
     ./programs/tmux.nix
     ./programs/nvim/nvim.nix
     ./programs/starship.nix
+    ./programs/yazi.nix
     ./programs/fzf.nix
     ./programs/zoxide.nix
     ./programs/bat.nix
@@ -23,7 +24,7 @@
   home = {
     username = username;
     homeDirectory = "/Users/${username}";
-    stateVersion = "24.05";
+    stateVersion = "24.11";
   };
 
   programs.home-manager.enable = true;

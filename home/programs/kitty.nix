@@ -6,7 +6,7 @@
   programs.kitty = {
     enable = true;
 
-    theme = "Gruvbox Material Dark Hard";
+    themeFile = "GruvboxMaterialDarkHard";
 
     font = {
       name = "Hack Nerd Font Mono";

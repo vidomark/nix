@@ -44,9 +44,7 @@
       "homebrew/cask"
     ];
 
-    brews = [
-      "jmeter"
-    ];
+    brews = [];
 
     casks = [
       "firefox"
@@ -57,7 +55,6 @@
       "stats"
       "font-monaspace"
       "karabiner-elements"
-      "amazon-q"
       "kindavim"
       "hammerspoon"
       "obsidian"

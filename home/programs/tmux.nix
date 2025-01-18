@@ -36,7 +36,6 @@ in
     plugins = with pkgs;
       [
         tmuxPlugins.better-mouse-mode
-        tmuxPlugins.sensible
         tmuxPlugins.vim-tmux-navigator
         tmuxPlugins.tmux-fzf
         floax
@@ -114,6 +113,11 @@ in
       set -g pane-active-border-style fg=colour250
       set -g status-bg default
       set -g status-style bg=default
+      set -g allow-passthrough on
+      set -ga update-environment TERM
+      set -ga update-environment TERM_PROGRAM
+      set -gu default-command
+      set -g default-shell "$SHELL"
     '';
   };
 }

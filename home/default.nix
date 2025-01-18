@@ -11,13 +11,13 @@
     ./programs/tmux.nix
     ./programs/nvim/nvim.nix
     ./programs/starship.nix
-    ./programs/yazi.nix
     ./programs/fzf.nix
     ./programs/zoxide.nix
     ./programs/bat.nix
     ./programs/yabai.nix
     ./programs/btop.nix
     ./programs/gpg.nix
+    ./programs/yazi/yazi.nix
     ./programs/ideavim/ideavim.nix
   ];
 

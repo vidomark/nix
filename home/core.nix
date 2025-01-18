@@ -20,6 +20,7 @@
 
     # Utilities
     ripgrep           # Fast search tool for recursively searching directories
+    ripgrep-all       # Fast search tool for recursively searching directories
     jq                # Command-line JSON processor
     yq-go             # Command-line YAML processor
     zsh-vi-mode       # Command-line vim bindings
@@ -37,6 +38,8 @@
     direnv            # Environment switcher for shell sessions
     curl
     wget
+    clipboard-jh
+    jmeter
 
     # System Tools
     file              # Determines file type

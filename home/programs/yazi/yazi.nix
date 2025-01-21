@@ -7,6 +7,13 @@ let
 		hash = "sha256-dIj2YgLN04nFxmw7I/sdbJY2QCs+Nmb4eUtfLlPL53E=";
 	};
 
+  starship = pkgs.fetchFromGitHub {
+		owner = "Rolv-Apneseth";
+		repo = "starship.yazi";
+		rev = "af8bf6f82165b83272b6501ce7445cf2c61fbf51";
+		hash = "sha256-L7MkZZqJ+t+A61ceC4Q1joLF6ytoWdgx9BwZWAGAoCA=";
+	};
+
   fg = pkgs.fetchFromGitHub {
     owner = "lpnh";
     repo = "fg.yazi";
@@ -37,42 +44,63 @@ in
     initLua = ./config/init.lua;
     settings = {
       show_hidden = true;
+      plugin.prepend_fetchers = [
+        {
+          id = "git";
+          name = "*";
+          run = "git";
+        }
+        {
+          id = "git";
+          name = "*/";
+          run = "git";
+        }
+      ];
     };
     keymap = {
-      manager.prepend_keymap = [
-        {
-					on = "T";
-					run = "plugin max-preview";
-					desc = "Maximize or restore the preview pane";
-				}
-				{
-					on = ["c" "m"];
-					run = "plugin chmod";
-					desc = "Chmod on selected files";
-				}
-        {
-          run = "plugin system-clipboard";
-          on = "<C-y>";
-          desc = "Copy to system-clipboard";
-        }
-        {
-          run = "plugin compress";
-          on = ["c" "a"];
-          desc = "Archive selected files";
-        }
-          # { run = "plugin fg"; on = ["f" "g"]; desc = "Find file by content"; }
-          # { run = "plugin fg --args='fzf'"; on = ["f" "f"]; desc = "Find file by filename"; }
+        manager.prepend_keymap = [
+          {
+            on = "T";
+            run = "plugin max-preview";
+            desc = "Maximize or restore the preview pane";
+          }
+          {
+            on = ["c" "m"];
+            run = "plugin chmod";
+            desc = "Chmod on selected files";
+          }
+          {
+            run = "plugin system-clipboard";
+            on = "<C-y>";
+            desc = "Copy to system-clipboard";
+          }
+          {
+            run = "plugin compress";
+            on = ["c" "a"];
+            desc = "Archive selected files";
+          }
+          {
+            run = "plugin fg";
+            on = ["f" "g"];
+            desc = "Find file by content";
+          }
+          {
+            run = "plugin fg --args='fzf'";
+            on = ["f" "f"];
+            desc = "Find file by filename";
+          }
         ];
       };
     plugins = {
+      git = "${yazi-plugins}/git.yazi";
       chmod = "${yazi-plugins}/chmod.yazi";
 			full-border = "${yazi-plugins}/full-border.yazi";
-			max-preview = "${yazi-plugins}/max-preview.yazi";
-      starship = pkgs.yaziPlugins.starship;
+      max-preview = "${yazi-plugins}/max-preview.yazi";
+      starship = starship;
       fg = fg;
       system-clipboard = system-clipboard;
       compress = compress;
     };
   };
-
 }
+

@@ -46,11 +46,8 @@
       url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
-
-    nix-yazi-plugins = {
-      url = "github:lordkekz/nix-yazi-plugins?ref=yazi-v0.2.5";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    
+    yazi.url = "github:sxyazi/yazi";
 
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
@@ -65,7 +62,7 @@
     homebrew-cask,
     homebrew-bundle,
     alacritty-theme,
-    nix-yazi-plugins,
+    yazi,
     ...
   }: let
     username = "mark.vido";
@@ -76,7 +73,7 @@
       inherit system;
       overlays = [
         alacritty-theme.overlays.default
-        nix-yazi-plugins.overlays.default
+        yazi.overlays.default
       ];
     };
     specialArgs =

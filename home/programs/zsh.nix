@@ -4,7 +4,7 @@
   programs.zsh = {
     enable = true;
     autocd = true;
-    # dotDir = ".config/zsh";
+    dotDir = ".config/zsh";
     autosuggestion.enable = true;
     enableCompletion = true;
     shellAliases = {

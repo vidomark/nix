@@ -63,6 +63,7 @@
       "alacritty"
       "kitty"
       "wezterm"
+      "ghostty"
 
       # "intellij-idea"
       "wireshark"

@@ -2,7 +2,7 @@
 
 {
   programs.ghostty = {
-    enable = false;
+    # enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
     installVimSyntax = true;

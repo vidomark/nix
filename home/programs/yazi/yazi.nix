@@ -44,6 +44,7 @@ in
     initLua = ./config/init.lua;
     settings = {
       show_hidden = true;
+      show_symlink = true;
       plugin.prepend_fetchers = [
         {
           id = "git";

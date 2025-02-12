@@ -68,6 +68,7 @@
       # "intellij-idea"
       "wireshark"
       "postman"
+      "drawio"
     ];
   };
 }

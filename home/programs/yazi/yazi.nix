@@ -43,8 +43,10 @@ in
     shellWrapperName = "y";
     initLua = ./config/init.lua;
     settings = {
-      show_hidden = true;
-      show_symlink = true;
+      manager = {
+        show_hidden = true;
+        show_symlink = true;
+      };
       plugin.prepend_fetchers = [
         {
           id = "git";

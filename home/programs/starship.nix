@@ -7,6 +7,9 @@
     enableBashIntegration = true;
     settings = {
       add_newline = false;
+      directory = {
+        truncate_to_repo = false;
+      };
     };
   };
 }

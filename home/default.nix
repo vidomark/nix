@@ -18,6 +18,7 @@
     ./programs/btop.nix
     ./programs/gpg.nix
     ./programs/yazi/yazi.nix
+    ./programs/karabiner/karabiner.nix
     ./programs/ideavim/ideavim.nix
   ];
 

@@ -46,6 +46,9 @@
       "google-chrome"
       "arc"
       "spotify"
+      "homerow"
+      "adobe-acrobat-reader"
+      "google-drive"
 
       "raycast"
       "stats"

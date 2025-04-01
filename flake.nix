@@ -65,7 +65,7 @@
     yazi,
     ...
   }: let
-    username = "mark.vido";
+    username = "vido.mark";
     useremail = "vidomark42@gmail.com";
     system = "aarch64-darwin";
     hostname = "macos";
@@ -85,9 +85,8 @@
     darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
       inherit pkgs system specialArgs;
       modules = [
+        ./modules/darwin
         ./modules/nix-core.nix
-        ./modules/system.nix
-        ./modules/apps.nix
         ./modules/host-users.nix
 
         home-manager.darwinModules.home-manager

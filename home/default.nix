@@ -14,7 +14,6 @@
     ./programs/fzf.nix
     ./programs/zoxide.nix
     ./programs/bat.nix
-    ./programs/yabai.nix
     ./programs/btop.nix
     ./programs/gpg.nix
     ./programs/yazi/yazi.nix

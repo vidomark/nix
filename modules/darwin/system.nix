@@ -21,8 +21,6 @@
     '';
 
     defaults = {
-      # menuExtraClock.Show24Hour = true;  # show 24 hour clock
-
       # customize dock
       dock = {
         autohide = true;
@@ -166,6 +164,8 @@
   environment.shells = [
     pkgs.zsh
   ];
+
+  environment.variables.EDITOR = "nvim";
 
   # Set your time zone.
   # time.timeZone = "Europe/Budapest";

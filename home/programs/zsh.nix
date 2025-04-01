@@ -31,6 +31,11 @@
       size = 1000000000;
     };
     initExtra = ''
+      # Required to install path variables correctly
+      if command -v /opt/homebrew/bin/brew &>/dev/null; then
+        eval "$(brew shellenv)"
+      fi
+
       bindkey '^ ' autosuggest-accept
 
       ZVM_VI_INSERT_ESCAPE_BINDKEY=jk

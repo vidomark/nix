@@ -12,10 +12,6 @@
   # But on macOS, it's less stable than homebrew.
   #
   # Related Discussion: https://discourse.nixos.org/t/darwin-again/29331
-  environment.systemPackages = with pkgs; [];
-
-  environment.variables.EDITOR = "nvim";
-
   homebrew = {
     enable = true;
     onActivation = {
@@ -30,13 +26,10 @@
     # otherwise Apple Store will refuse to install them.
     # For details, see https://github.com/mas-cli/mas 
     masApps = {
-      # Xcode = 497799835;
-      # Wechat = 836500024;
-      # NeteaseCloudMusic = 944848654;
-      # QQ = 451108668;
-      # WeCom = 1189898970;  # Wechat for Work
-      # TecentMetting = 1484048379;
-      # QQMusic = 595615424;
+      "MicrosoftExcel" = 462058435;
+      "MicrosoftWord" = 462054704;
+      "MicrosoftPowerPoint" = 462062816;
+      "DarkReader" = 1438243180;
     };
 
     taps = [
@@ -44,12 +37,15 @@
       "homebrew/cask"
     ];
 
-    brews = [];
+    brews = [
+      "mas"
+    ];
 
     casks = [
       "firefox"
-      # "google-chrome"
-      # "arc"
+      "google-chrome"
+      "arc"
+      "spotify"
 
       "raycast"
       "stats"
@@ -58,14 +54,13 @@
       "kindavim"
       "hammerspoon"
       "obsidian"
+      "logi-options+"
 
-      # Development
       "alacritty"
       "kitty"
       "wezterm"
       "ghostty"
 
-      # "intellij-idea"
       "wireshark"
       "postman"
       "drawio"

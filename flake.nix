@@ -68,7 +68,7 @@
     username = "vido.mark";
     useremail = "vidomark42@gmail.com";
     system = "aarch64-darwin";
-    hostname = "macos";
+    hostname = "aarch64-darwin";
     pkgs = import nixpkgs {
       inherit system;
       overlays = [

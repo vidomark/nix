@@ -49,6 +49,7 @@
       "homerow"
       "adobe-acrobat-reader"
       "google-drive"
+      "battery"
 
       "raycast"
       "stats"

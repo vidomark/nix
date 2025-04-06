@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ ... }:
 
 {
   imports = [
@@ -22,11 +22,11 @@
     ./programs/ideavim/ideavim.nix
   ];
 
-  home = {
-    username = username;
-    homeDirectory = "/Users/${username}";
-    stateVersion = "24.11";
-  };
+  # home = {
+  #   username = username;
+  #   homeDirectory = "/Users/${username}";
+  #   stateVersion = "24.11";
 
+# };
   programs.home-manager.enable = true;
 }

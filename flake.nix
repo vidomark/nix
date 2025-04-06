@@ -119,5 +119,14 @@
         }
       ];
     };
+
+     homeConfigurations = {
+      username = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./home-manager
+        ];
+      };
+    };
   };
 }

@@ -9,6 +9,7 @@ return {
 
   dependencies = {
     "jose-elias-alvarez/typescript.nvim",
+    "oxalica/nil",
   },
   ---@class PluginLspOpts
   opts = {
@@ -17,6 +18,7 @@ return {
       tsserver = {},
       pyright = {},
       eslint = {},
+      nil_ls = {},
     },
     ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
     setup = {
@@ -33,6 +35,11 @@ return {
           end
         end)
       end,
+      nil_ls = function(_, opts)
+        require("lspconfig").nil_ls.setup({})
+        return true
+      end,
+
       -- Specify * to use this function as a fallback for any server
       -- ["*"] = function(server, opts) end,
     },

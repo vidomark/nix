@@ -46,9 +46,13 @@
       url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
+
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     yazi.url = "github:sxyazi/yazi";
-
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
@@ -61,6 +65,7 @@
     homebrew-core,
     homebrew-cask,
     homebrew-bundle,
+    rust-overlay,
     alacritty-theme,
     yazi,
     ...
@@ -74,6 +79,8 @@
       overlays = [
         alacritty-theme.overlays.default
         yazi.overlays.default
+        rust-overlay.overlays.default
+        # (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/master.tar.gz"))
       ];
     };
     specialArgs =
@@ -86,8 +93,8 @@
       inherit pkgs system specialArgs;
       modules = [
         ./modules/nix-core.nix
-          ./modules/darwin
         ./modules/host-users.nix
+        ./modules/darwin
 
         home-manager.darwinModules.home-manager
         {
@@ -95,13 +102,13 @@
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = specialArgs;
           home-manager.users.${username} = import ./home-manager;
-        }
 
+        }
         nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
-            enable = true;
             enableRosetta = true;
+            enable = true;
             user = username;
             taps = {
               "homebrew/homebrew-core" = homebrew-core;

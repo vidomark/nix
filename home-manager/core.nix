@@ -12,7 +12,7 @@
     nodejs_20         # JavaScript runtime built on Chrome's V8 engine
     jdk21             # Java Development Kit for Java 21
     python3           # Python programming language interpreter
-    rustup            # Rust toolchain installer
+    go                # Go programming language
     maven             # Build automation tool for Java projects
     gradle            # Build automation tool for multi-language projects
     sqlcmd            # CLI tool for SQL Server

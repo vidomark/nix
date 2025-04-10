@@ -30,6 +30,7 @@
       "MicrosoftWord" = 462054704;
       "MicrosoftPowerPoint" = 462062816;
       "DarkReader" = 1438243180;
+      "BetterSnapTool" = 417375580;
     };
 
     taps = [

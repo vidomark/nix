@@ -73,7 +73,6 @@
     username = "vido.mark";
     useremail = "vidomark42@gmail.com";
     system = "aarch64-darwin";
-    hostname = "aarch64-darwin";
     pkgs = import nixpkgs {
       inherit system;
       overlays = [
@@ -85,22 +84,20 @@
     specialArgs =
       inputs
       // {
-        inherit username useremail hostname;
+        inherit username useremail system;
       };
   in {
-    darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
+    darwinConfigurations."${system}" = darwin.lib.darwinSystem {
       inherit pkgs system specialArgs;
       modules = [
-        ./modules/nix-core.nix
-        ./modules/host-users.nix
+        ./modules/system
         ./modules/darwin
-
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = specialArgs;
-          home-manager.users.${username} = import ./home-manager;
+          home-manager.users.${username} = import ./modules/home-manager;
 
         }
         nix-homebrew.darwinModules.nix-homebrew
@@ -117,6 +114,13 @@
           };
         }
       ];
+    };
+
+    homeConfigurations = {
+      ${username} = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./modules/home-manager ];
+      };
     };
   };
 }

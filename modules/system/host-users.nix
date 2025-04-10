@@ -1,6 +1,6 @@
 {
   username,
-  hostname,
+  system,
   ...
 } :
 #############################################################
@@ -9,9 +9,9 @@
 #
 #############################################################
 {
-  networking.hostName = hostname;
-  networking.computerName = hostname;
-  system.defaults.smb.NetBIOSName = hostname;
+  networking.hostName = system;
+  networking.computerName = system;
+  system.defaults.smb.NetBIOSName = system;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${username}" = {

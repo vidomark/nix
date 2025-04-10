@@ -80,7 +80,6 @@
         alacritty-theme.overlays.default
         yazi.overlays.default
         rust-overlay.overlays.default
-        # (import (builtins.fetchTarball "https://github.com/oxalica/rust-overlay/archive/master.tar.gz"))
       ];
     };
     specialArgs =

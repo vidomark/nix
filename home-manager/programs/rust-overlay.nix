@@ -1,4 +1,4 @@
-{ pkgs, rust-overlay, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = [

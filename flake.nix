@@ -124,7 +124,7 @@
           ./modules/home-manager
         ];
         extraSpecialArgs = {
-          inherit specialArgs;
+          inherit username useremail system homeDirectory;
         };
       };
     };

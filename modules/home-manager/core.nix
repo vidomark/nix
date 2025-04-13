@@ -17,6 +17,7 @@
     gradle            # Build automation tool for multi-language projects
     sqlcmd            # CLI tool for SQL Server
     quarkus           # CLI tool for Quarkus framework
+    gcc               # GNU Compiler Collection
 
     # Utilities
     ripgrep           # Fast search tool for recursively searching directories

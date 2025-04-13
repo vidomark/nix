@@ -73,6 +73,7 @@
     username = "vido.mark";
     useremail = "vidomark42@gmail.com";
     system = "aarch64-darwin";
+    homeDirectory = "/Users/${username}";
     pkgs = import nixpkgs {
       inherit system;
       overlays = [
@@ -84,7 +85,7 @@
     specialArgs =
       inputs
       // {
-        inherit username useremail system;
+        inherit username useremail system homeDirectory;
       };
   in {
     darwinConfigurations."${system}" = darwin.lib.darwinSystem {
@@ -123,7 +124,7 @@
           ./modules/home-manager
         ];
         extraSpecialArgs = {
-          inherit username useremail system;
+          inherit specialArgs;
         };
       };
     };

@@ -1,4 +1,5 @@
 {
+  pkgs,
   username,
   system,
   ...
@@ -8,16 +9,22 @@
 #  Host & Users configuration
 #
 #############################################################
-{
+let
+  home =
+    if pkgs.stdenv.hostPlatform.isDarwin then "/Users/${username}"
+    else if pkgs.stdenv.hostPlatform.isLinux then "/home/${username}"
+    else throw "Unsupported platform for user home directory!";
+in {
+
   networking.hostName = system;
   networking.computerName = system;
   system.defaults.smb.NetBIOSName = system;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${username}" = {
-    home = "/Users/${username}";
+    inherit home;
     description = username;
   };
 
   nix.settings.trusted-users = [username];
 }
+

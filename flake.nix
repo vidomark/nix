@@ -119,7 +119,12 @@
     homeConfigurations = {
       ${username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./modules/home-manager ];
+        modules = [
+          ./modules/home-manager
+        ];
+        extraSpecialArgs = {
+          inherit username useremail system;
+        };
       };
     };
   };

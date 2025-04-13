@@ -51,7 +51,6 @@
     caddy             # Web server with automatic HTTPS
     gnupg             # GNU Privacy Guard for encryption and signing
     just              # Task runner for command execution
-    skhd              # Hotkey daemon for macOS
     stow              # Symlink farm manager for managing dotfiles
 
     # Miscellaneous

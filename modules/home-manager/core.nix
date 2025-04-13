@@ -62,4 +62,8 @@
     # Fonts
     nerdfonts
   ];
+
+  apps.karabiner = {
+    enable = pkgs.stdenv.hostPlatform.isDarwin;
+  };
 }

@@ -1,14 +1,7 @@
 {
-  description = "Nix for macOS configuration";
+  description = "Nix Darwin and Standalone Home Manager configuration";
 
-  ##################################################################################################################
-  #
-  # Want to know Nix in details? Looking for a beginner-friendly tutorial?
-  # Check out https://github.com/ryan4yin/nixos-and-flakes-book !
-  #
-  ##################################################################################################################
-
-  # the nixConfig here only affects the flake itself, not the system configuration!
+  # The nixConfig here only affects the flake itself, not the system configuration!
   nixConfig = {
     substituters = [
       # Query the mirror of USTC first, and then the official cache.
@@ -70,10 +63,15 @@
     yazi,
     ...
   }: let
-    username = "vido.mark";
-    useremail = "vidomark42@gmail.com";
     system = "aarch64-darwin";
     homeDirectory = "/Users/${username}";
+    username = "vido.mark";
+    useremail = "vidomark42@gmail.com";
+    specialArgs =
+      inputs
+      // {
+        inherit username useremail system homeDirectory;
+      };
     pkgs = import nixpkgs {
       inherit system;
       overlays = [
@@ -82,39 +80,36 @@
         rust-overlay.overlays.default
       ];
     };
-    specialArgs =
-      inputs
-      // {
-        inherit username useremail system homeDirectory;
-      };
   in {
-    darwinConfigurations."${system}" = darwin.lib.darwinSystem {
-      inherit pkgs system specialArgs;
-      modules = [
-        ./modules/system
-        ./modules/darwin
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = specialArgs;
-          home-manager.users.${username} = import ./modules/home-manager;
+    darwinConfigurations = {
+      ${system} = darwin.lib.darwinSystem {
+        inherit pkgs system specialArgs;
+        modules = [
+          ./modules/system
+          ./modules/darwin
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = specialArgs;
+            home-manager.users.${username} = import ./modules/home-manager;
 
-        }
-        nix-homebrew.darwinModules.nix-homebrew
-        {
-          nix-homebrew = {
-            enableRosetta = true;
-            enable = true;
-            user = username;
-            taps = {
-              "homebrew/homebrew-core" = homebrew-core;
-              "homebrew/homebrew-cask" = homebrew-cask;
-              "homebrew/homebrew-bundle" = homebrew-bundle;
+          }
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enableRosetta = true;
+              enable = true;
+              user = username;
+              taps = {
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-cask" = homebrew-cask;
+                "homebrew/homebrew-bundle" = homebrew-bundle;
+              };
             };
-          };
-        }
-      ];
+          }
+        ];
+      };
     };
 
     homeConfigurations = {

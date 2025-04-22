@@ -51,6 +51,7 @@
       "adobe-acrobat-reader"
       "google-drive"
       "battery"
+      "messenger"
 
       "raycast"
       "stats"

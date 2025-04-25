@@ -118,8 +118,6 @@ in
       set -ga update-environment TERM_PROGRAM
       set -gu default-command
       set -g default-shell "$SHELL"
-
-      zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
     '';
   };
 }

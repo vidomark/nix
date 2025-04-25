@@ -60,6 +60,7 @@
       zstyle ':fzf-tab:*' use-fzf-default-opts yes
       # switch group using `<` and `>`
       zstyle ':fzf-tab:*' switch-group '<' '>'
+      zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
       if [ -z "$INTELLIJ_ENVIRONMENT_READER" ] && command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
         exec tmux

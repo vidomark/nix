@@ -18,6 +18,7 @@
     sqlcmd            # CLI tool for SQL Server
     quarkus           # CLI tool for Quarkus framework
     gcc               # GNU Compiler Collection
+    lua               # Lua programming language
 
     # Utilities
     ripgrep           # Fast search tool for recursively searching directories

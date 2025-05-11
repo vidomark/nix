@@ -44,84 +44,95 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     yazi.url = "github:sxyazi/yazi";
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    darwin,
-    home-manager,
-    nix-homebrew,
-    homebrew-core,
-    homebrew-cask,
-    homebrew-bundle,
-    rust-overlay,
-    alacritty-theme,
-    yazi,
-    ...
-  }: let
-    system = "aarch64-darwin";
-    homeDirectory = "/Users/${username}";
-    username = "vido.mark";
-    useremail = "vidomark42@gmail.com";
-    specialArgs =
-      inputs
-      // {
-        inherit username useremail system homeDirectory;
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      darwin,
+      home-manager,
+      nix-homebrew,
+      homebrew-core,
+      homebrew-cask,
+      homebrew-bundle,
+      rust-overlay,
+      alacritty-theme,
+      yazi,
+      ...
+    }:
+    let
+      system = "aarch64-darwin";
+      homeDirectory = "/Users/${username}";
+      username = "vido.mark";
+      useremail = "vidomark42@gmail.com";
+      specialArgs = inputs // {
+        inherit
+          username
+          useremail
+          system
+          homeDirectory
+          ;
       };
-    pkgs = import nixpkgs {
-      inherit system;
-      overlays = [
-        alacritty-theme.overlays.default
-        yazi.overlays.default
-        rust-overlay.overlays.default
-      ];
-    };
-  in {
-    darwinConfigurations = {
-      ${system} = darwin.lib.darwinSystem {
-        inherit pkgs system specialArgs;
-        modules = [
-          ./modules/system
-          ./modules/darwin
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = specialArgs;
-            home-manager.users.${username} = import ./modules/home-manager;
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          alacritty-theme.overlays.default
+          yazi.overlays.default
+          rust-overlay.overlays.default
+        ];
+      };
+    in
+    {
+      darwinConfigurations = {
+        ${system} = darwin.lib.darwinSystem {
+          inherit pkgs system specialArgs;
+          modules = [
+            ./modules/system
+            ./modules/darwin
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = specialArgs;
+              home-manager.users.${username} = import ./modules/home-manager;
 
-          }
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enableRosetta = true;
-              enable = true;
-              user = username;
-              taps = {
-                "homebrew/homebrew-core" = homebrew-core;
-                "homebrew/homebrew-cask" = homebrew-cask;
-                "homebrew/homebrew-bundle" = homebrew-bundle;
+            }
+            nix-homebrew.darwinModules.nix-homebrew
+            {
+              nix-homebrew = {
+                enableRosetta = true;
+                enable = true;
+                user = username;
+                taps = {
+                  "homebrew/homebrew-core" = homebrew-core;
+                  "homebrew/homebrew-cask" = homebrew-cask;
+                  "homebrew/homebrew-bundle" = homebrew-bundle;
+                };
               };
-            };
-          }
-        ];
+            }
+          ];
+        };
       };
-    };
 
-    homeConfigurations = {
-      ${username} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./modules/home-manager
-        ];
-        extraSpecialArgs = {
-          inherit username useremail system homeDirectory;
+      homeConfigurations = {
+        ${username} = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./modules/home-manager
+          ];
+          extraSpecialArgs = {
+            inherit
+              username
+              useremail
+              system
+              homeDirectory
+              ;
+          };
         };
       };
     };
-  };
 }

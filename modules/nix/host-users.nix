@@ -3,14 +3,13 @@
   username,
   system,
   ...
-} :
+}:
 #############################################################
 #
 #  Host & Users configuration
 #
 #############################################################
 {
-
   networking.hostName = system;
   networking.computerName = system;
   system.defaults.smb.NetBIOSName = system;
@@ -20,6 +19,5 @@
     description = username;
   };
 
-  nix.settings.trusted-users = [username];
+  nix.settings.trusted-users = [ username ];
 }
-

@@ -35,8 +35,16 @@ return {
           end
         end)
       end,
-      nil_ls = function(_, opts)
-        require("lspconfig").nil_ls.setup({})
+      nil_ls = function()
+        require("lspconfig").nil_ls.setup({
+          settings = {
+            ["nil"] = {
+              formatting = {
+                command = { "nixfmt" },
+              },
+            },
+          },
+        })
         return true
       end,
 

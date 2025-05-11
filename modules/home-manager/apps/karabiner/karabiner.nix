@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   options.apps.karabiner = {
     enable = lib.mkEnableOption "Karabiner-Elements configuration";

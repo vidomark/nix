@@ -3,7 +3,8 @@
   username,
   useremail,
   ...
-}: {
+}:
+{
   home.packages = with pkgs; [
     lazygit
   ];

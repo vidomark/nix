@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  xdg.configFile.ideavim = {  
+  xdg.configFile.ideavim = {
     source = ./config;
     recursive = true;
   };

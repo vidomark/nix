@@ -1,5 +1,4 @@
-{  username, homeDirectory, ... }:
-
+{ username, homeDirectory, ... }:
 {
   imports = [
     ./core.nix

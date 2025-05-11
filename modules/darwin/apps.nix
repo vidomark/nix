@@ -1,7 +1,7 @@
-{ ... }: {
-
+{ ... }:
+{
   ##########################################################################
-  # 
+  #
   #  Install all apps and packages here.
   #
   ##########################################################################
@@ -24,7 +24,7 @@
     # Applications to install from Mac App Store using mas.
     # You need to install all these Apps manually first so that your apple account have records for them.
     # otherwise Apple Store will refuse to install them.
-    # For details, see https://github.com/mas-cli/mas 
+    # For details, see https://github.com/mas-cli/mas
     masApps = {
       "MicrosoftExcel" = 462058435;
       "MicrosoftWord" = 462054704;
@@ -52,6 +52,7 @@
       "google-drive"
       "battery"
       "messenger"
+      "viber"
 
       "raycast"
       "stats"

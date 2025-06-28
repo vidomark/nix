@@ -12,7 +12,7 @@ return {
     {
       "<leader>vf",
       function()
-        require("neo-tree.command").execute({ toggle = true, dir = LazyVim.root() })
+        require("neo-tree.command").execute({ toggle = true, dir = vim.fn.getcwd() })
       end,
       desc = "Explorer NeoTree",
     },

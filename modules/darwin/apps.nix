@@ -66,7 +66,7 @@
       "alacritty"
       "kitty"
       "wezterm"
-      # "ghostty"
+      "ghostty"
 
       "wireshark"
       "postman"

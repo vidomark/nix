@@ -6,7 +6,6 @@
     themeFile = "GruvboxMaterialDarkHard";
 
     font = {
-      # name = "Hack Nerd Font Mono";
       name = "Monaspace Neon";
       size = 30;
     };

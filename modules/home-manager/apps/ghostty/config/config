@@ -178,7 +178,7 @@ font-codepoint-map =
 
 # Draw fonts with a thicker stroke, if supported. This is only supported
 # currently on macOS.
-font-thicken = false
+font-thicken = true
 
 # All of the configurations behavior adjust various metrics determined by the
 # font. The values can be integers (1, -1, etc.) or a percentage (20%, -15%,
@@ -2199,10 +2199,7 @@ gtk-wide-tabs = true
 # to false to get your theme picked up properly. Having this set to true
 # with GTK3 should not cause any problems, but it may not work exactly as
 # expected.
-# 
-# This configuration only has an effect if Ghostty was built with
-# Adwaita support.
-gtk-adwaita = true
+
 
 # If `true` (default), applications running in the terminal can show desktop
 # notifications using certain escape sequences such as OSC 9 or OSC 777.

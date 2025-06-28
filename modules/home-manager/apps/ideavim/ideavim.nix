@@ -1,5 +1,4 @@
 { ... }:
-
 {
   xdg.configFile.ideavim = {
     source = ./config;

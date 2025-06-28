@@ -91,7 +91,7 @@
         ${system} = darwin.lib.darwinSystem {
           inherit pkgs system specialArgs;
           modules = [
-            ./modules/system
+            ./modules/nix
             ./modules/darwin
             home-manager.darwinModules.home-manager
             {
@@ -99,7 +99,7 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = specialArgs;
               home-manager.users.${username} = import ./modules/home-manager;
-
+              home-manager.backupFileExtension = "bckp";
             }
             nix-homebrew.darwinModules.nix-homebrew
             {

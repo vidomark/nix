@@ -26,11 +26,11 @@
     # otherwise Apple Store will refuse to install them.
     # For details, see https://github.com/mas-cli/mas
     masApps = {
-      # "MicrosoftExcel" = 462058435;
-      # "MicrosoftWord" = 462054704;
-      # "MicrosoftPowerPoint" = 462062816;
-      # "DarkReader" = 1438243180;
-      # "BetterSnapTool" = 417375580;
+      "MicrosoftExcel" = 462058435;
+      "MicrosoftWord" = 462054704;
+      "MicrosoftPowerPoint" = 462062816;
+      "DarkReader" = 1438243180;
+      "BetterSnapTool" = 417375580;
     };
 
     taps = [

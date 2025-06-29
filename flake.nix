@@ -1,20 +1,17 @@
 {
   description = "Nix Darwin and Standalone Home Manager configuration";
 
-  # The nixConfig here only affects the flake itself, not the system configuration!
   nixConfig = {
-    substituters = [
-      # Query the mirror of USTC first, and then the official cache.
-      "https://mirrors.ustc.edu.cn/nix-channels/store"
-      "https://cache.nixos.org"
-    ];
+    substituters = [ "https://cache.nixos.org" ];
   };
 
   inputs = {
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
+    nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
+
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
@@ -46,6 +43,7 @@
     };
 
     yazi.url = "github:sxyazi/yazi";
+
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
@@ -121,9 +119,7 @@
       homeConfigurations = {
         ${username} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [
-            ./modules/home-manager
-          ];
+          modules = [ ./modules/home-manager ];
           extraSpecialArgs = {
             inherit
               username

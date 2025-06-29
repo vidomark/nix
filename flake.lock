@@ -134,16 +134,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1736373539,
-        "narHash": "sha256-dinzAqCjenWDxuy+MqUQq0I4zUSfaCvN9rzuCmgMZJY=",
+        "lastModified": 1750792728,
+        "narHash": "sha256-Lh3dopA8DdY+ZoaAJPrtkZOZaFEJGSYjOdAYYgOPgE4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "bd65bc3cde04c16755955630b344bc9e35272c56",
+        "rev": "366f00797b1efb70f2882d3da485e3c10fd3d557",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-24.11",
+        "ref": "release-25.05",
         "repo": "home-manager",
         "type": "github"
       }
@@ -253,16 +253,16 @@
     },
     "nixpkgs-darwin": {
       "locked": {
-        "lastModified": 1736949135,
-        "narHash": "sha256-HGSacCG66FNt/oQjxXsp+2og657hZFjBDAhUGzPoyn4=",
+        "lastModified": 1751138105,
+        "narHash": "sha256-l1II6CD7lIXWEH29c/XZDdbMGj+Ma4GKMwEHGFoSPE8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5a141918f8b3ea128746881b6c099a6df569a51e",
+        "rev": "f7d1b62ae0bda6cc444ba2a75911c0f56a107458",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixpkgs-24.11-darwin",
+        "ref": "nixpkgs-25.05-darwin",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -316,14 +316,18 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-HGSacCG66FNt/oQjxXsp+2og657hZFjBDAhUGzPoyn4=",
-        "path": "/nix/store/60hhmbzqlw8zlq66qn3wbslcrf3lp9fx-source",
-        "type": "path"
+        "lastModified": 1751218216,
+        "narHash": "sha256-g0zgFtP4K9StlVMe4Ak5bT/NUdNZo1cXSgAz546VKTM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3406ebe1ba90b89718e283c5b51aff1663bca501",
+        "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
+        "owner": "nixos",
+        "ref": "release-25.05",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs_5": {

@@ -59,9 +59,6 @@
     tree # Displays directory structure in a tree format
     checkstyle # Code style checker for Java
     glow # Markdown previewer in the terminal
-
-    # Fonts
-    nerdfonts
   ];
 
   apps.karabiner = {

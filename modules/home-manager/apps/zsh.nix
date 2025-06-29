@@ -1,4 +1,5 @@
 { pkgs, ... }:
+
 {
   programs.zsh = {
     enable = true;
@@ -29,7 +30,7 @@
       save = 100000000;
       size = 1000000000;
     };
-    initExtra = ''
+    initContent = ''
       ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
       zvm_after_init() {

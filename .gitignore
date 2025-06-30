@@ -1,0 +1,36 @@
+# Nix build outputs
+result
+result-*
+
+# Nix store paths
+.direnv/
+
+# Home Manager generated files
+.config/.persist/
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Temporary files
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Editor specific files
+.vscode/
+.idea/
+*.iml
+.*.sw?
+
+# Nix flake related
+.pre-commit-config.yaml
+
+# Darwin system specific
+darwin-result
+darwin-result-*

@@ -22,7 +22,7 @@
     };
   };
 
-  # Uncomment this, once the Nix package is fixed
+  # Remove, once the Nix package is fixed
   xdg.configFile.ghostty = {
     source = ./config;
     recursive = true;

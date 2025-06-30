@@ -91,6 +91,7 @@ in
         {
           run = "plugin fg";
           on = [
+            "<Space>"
             "f"
             "g"
           ];
@@ -99,6 +100,7 @@ in
         {
           run = "plugin fg --args='fzf'";
           on = [
+            "<Space>"
             "f"
             "f"
           ];

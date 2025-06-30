@@ -94,7 +94,6 @@ in
       bind v split-window -h -c "#{pane_current_path}"
       bind-key j previous-window
       bind-key k next-window
-      bind-key -n F4 copy-mode
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
       bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"

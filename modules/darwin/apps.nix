@@ -38,10 +38,6 @@
       "homebrew/cask"
     ];
 
-    brews = [
-      "mas"
-    ];
-
     casks = [
       "firefox"
       "google-chrome"

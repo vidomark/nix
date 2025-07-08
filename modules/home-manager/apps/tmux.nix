@@ -1,27 +1,4 @@
-{ pkgs, config, ... }:
-let
-  sessionx = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "sessionx";
-    version = "0711d03";
-    src = pkgs.fetchFromGitHub {
-      owner = "omerxx";
-      repo = "tmux-sessionx";
-      rev = "0711d0374fe0ace8fd8774396469ab34c5fbf360";
-      sha256 = "sha256-9IhXoW9o/ftbhIree+I3vT6r3uNgkZ7cskSyedC3xG4=";
-    };
-  };
-
-  floax = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "floax";
-    version = "864ceb9";
-    src = pkgs.fetchFromGitHub {
-      owner = "omerxx";
-      repo = "tmux-floax";
-      rev = "864ceb9372cb496eda704a40bb080846d3883634";
-      sha256 = "sha256-vG8UmqYXk4pCvOjoSBTtYb8iffdImmtgsLwgevTu8pI=";
-    };
-  };
-in
+{ pkgs, ... }:
 {
   programs.tmux = {
     enable = true;
@@ -35,11 +12,19 @@ in
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.tmux-fzf
-      floax
+      tmuxPlugins.copy-toolkit
+      tmuxPlugins.tmux-floax
+      tmuxPlugins.tmux-sessionx
+      tmuxPlugins.yank
+      tmuxPlugins.tmux-which-key
+      tmuxPlugins.better-mouse-mode
       {
-        plugin = sessionx;
+        plugin = tmuxPlugins.fuzzback;
         extraConfig = ''
-          set-environment -g TMUX_PLUGIN_MANAGER_PATH "${config.home.homeDirectory}/.tmux/plugins"
+          set -g @fuzzback-bind /
+          set -g @fuzzback-popup 0
+          set -g @fuzzback-finder-bind 'ctrl-s:toggle-sort'
+          set -g @fuzzback-popup-size '90%'
         '';
       }
       {
@@ -50,7 +35,6 @@ in
           set -g @resurrect-capture-pane-contents 'on'
         '';
       }
-      tmuxPlugins.tmux-thumbs
       {
         plugin = tmuxPlugins.continuum;
         extraConfig = ''
@@ -60,29 +44,45 @@ in
         '';
       }
       {
-        plugin = tmuxPlugins.catppuccin;
+        plugin = tmuxPlugins.tokyo-night-tmux;
         extraConfig = ''
-          set -g @catppuccin_flavour 'mocha'
-          set -g @catppuccin_window_left_separator ""
-          set -g @catppuccin_window_right_separator " "
-          set -g @catppuccin_window_middle_separator " █"
-          set -g @catppuccin_window_number_position "right"
-          set -g @catppuccin_window_default_fill "number"
-          set -g @catppuccin_window_default_text "#W"
-          set -g @catppuccin_window_current_fill "number"
-          set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
-          set -g @catppuccin_status_modules_right "directory meetings date_time"
-          set -g @catppuccin_status_modules_left "session"
-          set -g @catppuccin_status_left_separator  " "
-          set -g @catppuccin_status_right_separator " "
-          set -g @catppuccin_status_right_separator_inverse "no"
-          set -g @catppuccin_status_fill "icon"
-          set -g @catppuccin_status_connect_separator "no"
-          set -g @catppuccin_directory_text "#{b:pane_current_path}"
-          set -g @catppuccin_meetings_text "#($HOME/.config/tmux/scripts/cal.sh)"
-          set -g @catppuccin_date_time_text "%H:%M"
+          set -g @tokyo-night-tmux_transparent 1
+          set -g @tokyo-night-tmux_window_id_style digital
+          set -g @tokyo-night-tmux_pane_id_style hsquare
+          set -g @tokyo-night-tmux_zoom_id_style dsquare
+          set -g @tokyo-night-tmux_terminal_icon 
+          set -g @tokyo-night-tmux_active_terminal_icon 
+          set -g @tokyo-night-tmux_window_tidy_icons 1
+          set -g @tokyo-night-tmux_show_datetime 0
+          set -g @tokyo-night-tmux_show_hostname 1
+          set -g @tokyo-night-tmux_show_path 1
+          set -g @tokyo-night-tmux_path_format relative
         '';
       }
+      # {
+      #   plugin = tmuxPlugins.catppuccin;
+      #   extraConfig = ''
+      #     set -g @catppuccin_flavour 'mocha'
+      #     set -g @catppuccin_window_left_separator ""
+      #     set -g @catppuccin_window_right_separator " "
+      #     set -g @catppuccin_window_middle_separator " █"
+      #     set -g @catppuccin_window_number_position "right"
+      #     set -g @catppuccin_window_default_fill "number"
+      #     set -g @catppuccin_window_default_text "#W"
+      #     set -g @catppuccin_window_current_fill "number"
+      #     set -g @catppuccin_window_current_text "#W#{?window_zoomed_flag,(),}"
+      #     set -g @catppuccin_status_modules_right "directory meetings date_time"
+      #     set -g @catppuccin_status_modules_left "session"
+      #     set -g @catppuccin_status_left_separator  " "
+      #     set -g @catppuccin_status_right_separator " "
+      #     set -g @catppuccin_status_right_separator_inverse "no"
+      #     set -g @catppuccin_status_fill "icon"
+      #     set -g @catppuccin_status_connect_separator "no"
+      #     set -g @catppuccin_directory_text "#{b:pane_current_path}"
+      #     set -g @catppuccin_meetings_text "#($HOME/.config/tmux/scripts/cal.sh)"
+      #     set -g @catppuccin_date_time_text "%H:%M"
+      #   '';
+      # }
     ];
     extraConfig = ''
       bind i choose-tree -Zs
@@ -107,8 +107,6 @@ in
       set -g status-bg default
       set -g status-style bg=default
       set -g pane-active-border-style fg=colour250
-      set -g status-bg default
-      set -g status-style bg=default
       set -g allow-passthrough on
       set -ga update-environment TERM
       set -ga update-environment TERM_PROGRAM

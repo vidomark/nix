@@ -56,6 +56,7 @@
       gnupg # GNU Privacy Guard for encryption and signing
       just # Task runner for command execution
       stow # Symlink farm manager for managing dotfiles
+      lesspipe # Less preprocessor
 
       # Miscellaneous
       tree # Displays directory structure in a tree format
@@ -68,5 +69,9 @@
 
   apps.karabiner = {
     enable = pkgs.stdenv.hostPlatform.isDarwin;
+  };
+
+  home.sessionVariables = {
+    LESSOPEN = "|lesspipe.sh %s";
   };
 }

@@ -13,6 +13,7 @@
       ls = "lsd";
       cd = "z";
       cat = "bat";
+      grep = "batgrep";
     };
 
     oh-my-zsh = {
@@ -41,6 +42,10 @@
           source "${pkgs.fzf}/share/fzf/completion.zsh"
         fi
       }
+
+      if command -v batman &> /dev/null; then
+        eval "$(${pkgs.bat-extras.core}/bin/batman --export-env)"
+      fi
 
       zstyle ':completion:*:git-checkout:*' sort false
       # set descriptions format to enable group support

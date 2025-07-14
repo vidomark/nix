@@ -1,8 +1,8 @@
 return {
   "folke/trouble.nvim",
   keys = {
-    { "<leader>vp", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document diagnostics" },
-    { "<leader>vP", "<cmd>TroubleToggle<cr>", desc = "Diagnostics" },
+    { "<leader>vP", "<cmd>Trouble diagnostics toggle<cr>", desc = "Document diagnostics" },
+    { "<leader>vp", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Diagnostics" },
     { "<leader>xx", false },
     { "<leader>xX", false },
   },

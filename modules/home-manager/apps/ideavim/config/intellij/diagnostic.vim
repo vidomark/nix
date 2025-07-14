@@ -14,8 +14,8 @@ let g:WhichKeyDesc_error_previous                          = "<leader>ej Go to P
 map <leader>ej <Action>(GotoPreviousError)
 
 " Show Error Description
-let g:WhichKeyDesc_error_description                       = "<leader>ed Show Error Description"
-map <leader>ed <Action>(ShowErrorDescription)
+let g:WhichKeyDesc_error_description                       = "<leader>el Show Error Description"
+map <leader>el <Action>(ShowErrorDescription)
 
 " Explain Plan
 let g:WhichKeyDesc_code_explain_plan                       = "<leader>ep Explain Plan"

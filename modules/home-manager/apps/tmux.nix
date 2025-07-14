@@ -21,7 +21,6 @@
       {
         plugin = tmuxPlugins.fuzzback;
         extraConfig = ''
-          set -g @fuzzback-bind /
           set -g @fuzzback-popup 0
           set -g @fuzzback-finder-bind 'ctrl-s:toggle-sort'
           set -g @fuzzback-popup-size '90%'

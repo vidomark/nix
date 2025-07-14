@@ -54,7 +54,7 @@ local diagnostic_goto = function(next, severity)
 end
 vim.keymap.set("n", "<leader>ej", diagnostic_goto(false), { desc = "Prev Diagnostic" })
 vim.keymap.set("n", "<leader>ek", diagnostic_goto(true), { desc = "Next Diagnostic" })
-vim.keymap.set("n", "<leader>ed", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+vim.keymap.set("n", "<leader>el", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
 -- View
 local lazyterm = function()

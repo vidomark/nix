@@ -8,6 +8,8 @@
     ./apps/alacritty.nix
     ./apps/kitty.nix
     ./apps/tmux.nix
+    ./apps/aerospace.nix
+    ./apps/jankyborders.nix
     ./apps/nvim/nvim.nix
     ./apps/starship.nix
     ./apps/fzf.nix

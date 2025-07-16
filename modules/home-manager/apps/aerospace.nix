@@ -78,11 +78,9 @@
             "alt-m" = "workspace M";
             "alt-n" = "workspace N";
             "alt-o" = "workspace O";
-            "alt-p" = "workspace P";
             "alt-q" = "workspace Q";
             "alt-r" = "workspace R";
             "alt-s" = "workspace S";
-            "alt-t" = "workspace T";
             "alt-u" = "workspace U";
             "alt-v" = "workspace V";
             "alt-w" = "workspace W";
@@ -111,11 +109,9 @@
             "alt-shift-m" = "move-node-to-workspace M";
             "alt-shift-n" = "move-node-to-workspace N";
             "alt-shift-o" = "move-node-to-workspace O";
-            "alt-shift-p" = "move-node-to-workspace P";
             "alt-shift-q" = "move-node-to-workspace Q";
             "alt-shift-r" = "move-node-to-workspace R";
             "alt-shift-s" = "move-node-to-workspace S";
-            "alt-shift-t" = "move-node-to-workspace T";
             "alt-shift-u" = "move-node-to-workspace U";
             "alt-shift-v" = "move-node-to-workspace V";
             "alt-shift-w" = "move-node-to-workspace W";

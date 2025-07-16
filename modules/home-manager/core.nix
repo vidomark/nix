@@ -57,10 +57,12 @@
       just # Task runner for command execution
       stow # Symlink farm manager for managing dotfiles
       lesspipe # Less preprocessor
+      ouch # Command line utility for easily fompressign and decompressing files and directories
 
       # Miscellaneous
       tree # Displays directory structure in a tree format
       checkstyle # Code style checker for Java
+      rich-cli # Command line interface to rich
       glow # Markdown previewer in the terminal
     ]
     ++ (lib.optionals stdenv.isDarwin [

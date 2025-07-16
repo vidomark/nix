@@ -14,6 +14,27 @@ let
     hash = "sha256-L7MkZZqJ+t+A61ceC4Q1joLF6ytoWdgx9BwZWAGAoCA=";
   };
 
+  rich-preview = pkgs.fetchFromGitHub {
+    owner = "AnirudhG07";
+    repo = "rich-preview.yazi";
+    rev = "8be4d27ee044ce6b9b28c0c4ff544482423dbbbf";
+    hash = "sha256-TwL0gIcDhp0hMnC4dPqaVWIXhghy977DmZ+yPoF/N98=";
+  };
+
+  glow = pkgs.fetchFromGitHub {
+    owner = "Reledia";
+    repo = "glow.yazi";
+    rev = "602ee6b844fc04b8ebc34356c1b228d4af18972b";
+    hash = "sha256-lr/7KidjNFyahINURiy1NbK+cUMxIWH30Guz0yyj+Wg=";
+  };
+
+  ouch = pkgs.fetchFromGitHub {
+    owner = "ndtoan96";
+    repo = "ouch.yazi";
+    rev = "083d5647345c8d2119d50860aabca57d292ab672";
+    hash = "sha256-zLAaJrcZGNWlG2HjsZtN4u8JZAN+GLl2RtP9qCt3T74=";
+  };
+
   fg = pkgs.fetchFromGitHub {
     owner = "lpnh";
     repo = "fg.yazi";
@@ -47,21 +68,94 @@ in
         show_hidden = true;
         show_symlink = true;
       };
-      plugin.prepend_fetchers = [
-        {
-          id = "git";
-          name = "*";
-          run = "git";
-        }
-        {
-          id = "git";
-          name = "*/";
-          run = "git";
-        }
-      ];
+      plugin = {
+        prepend_fetchers = [
+          {
+            name = "*";
+            id = "git";
+            run = "git";
+          }
+          {
+            id = "git";
+            name = "*/";
+            run = "git";
+          }
+        ];
+        prepend_previewers = [
+          {
+            name = "*.csv";
+            run = "rich-preview";
+          }
+          {
+            name = "*.md";
+            run = "rich-preview";
+          }
+          {
+            name = "*.rst";
+            run = "rich-preview";
+          }
+          {
+            name = "*.ipynb";
+            run = "rich-preview";
+          }
+          {
+            name = "*.json";
+            run = "rich-preview";
+          }
+          {
+            mime = "application/*zip";
+            run = "ouch";
+          }
+          {
+            mime = "application/x-tar";
+            run = "ouch";
+          }
+          {
+            mime = "application/x-bzip2";
+            run = "ouch";
+          }
+          {
+            mime = "application/x-7z-compressed";
+            run = "ouch";
+          }
+          {
+            mime = "application/x-rar";
+            run = "ouch";
+          }
+          {
+            mime = "application/vnd.rar";
+            run = "ouch";
+          }
+          {
+            mime = "application/x-xz";
+            run = "ouch";
+          }
+          {
+            mime = "application/xz";
+            run = "ouch";
+          }
+          {
+            mime = "application/x-zstd";
+            run = "ouch";
+          }
+          {
+            mime = "application/zstd";
+            run = "ouch";
+          }
+          {
+            mime = "application/java-archive";
+            run = "ouch";
+          }
+        ];
+      };
     };
     keymap = {
       manager.prepend_keymap = [
+        {
+          on = "F";
+          run = "plugin smart-filter";
+          desc = "Smart filter";
+        }
         {
           on = "T";
           run = "plugin max-preview";
@@ -110,12 +204,16 @@ in
     };
     plugins = {
       git = "${yazi-plugins}/git.yazi";
+      smart-filter = "${yazi-plugins}/smart-filter.yazi";
       chmod = "${yazi-plugins}/chmod.yazi";
       full-border = "${yazi-plugins}/full-border.yazi";
       max-preview = "${yazi-plugins}/max-preview.yazi";
+      rich-preview = rich-preview;
+      ouch = ouch;
+      glow = glow;
+      system-clipboard = system-clipboard;
       starship = starship;
       fg = fg;
-      system-clipboard = system-clipboard;
       compress = compress;
     };
   };

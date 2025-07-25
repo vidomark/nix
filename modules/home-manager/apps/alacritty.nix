@@ -22,8 +22,8 @@
       };
 
       font = {
-        size = 29;
-        normal.family = "Hack Nerd Font Mono";
+        size = 32;
+        normal.family = "ComicShannsMono Nerd Font Mono";
       };
 
       env.TERM = "xterm-256color";

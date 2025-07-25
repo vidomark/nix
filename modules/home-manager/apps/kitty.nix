@@ -6,8 +6,8 @@
     themeFile = "GruvboxMaterialDarkHard";
 
     font = {
-      name = "Monaspace Neon";
-      size = 30;
+      name = "ComicShannsMono Nerd Font Mono";
+      size = 32;
     };
 
     settings = {

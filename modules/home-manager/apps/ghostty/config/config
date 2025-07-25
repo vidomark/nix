@@ -49,7 +49,7 @@
 # 
 # Changing this configuration at runtime will only affect new terminals, i.e.
 # new windows, tabs, etc.
-font-family = Monaspace Neon
+font-family = ComicShannsMono Nerd Font Mono
 
 font-family-bold = 
 font-family-italic = 
@@ -133,7 +133,7 @@ font-feature =
 # depending on your `window-inherit-font-size` setting. If that setting is
 # true, only the first window will be affected by this change since all
 # subsequent windows will inherit the font size of the previous window.
-font-size = 31
+font-size = 32
 
 # A repeatable configuration to set one or more font variations values for
 # a variable font. A variable font is a single font, usually with a filename
@@ -776,7 +776,7 @@ mouse-scroll-multiplier = 1
 # On macOS, background opacity is disabled when the terminal enters native
 # fullscreen. This is because the background becomes gray and it can cause
 # widgets to show through which isn't generally desirable.
-background-opacity = 0.8
+background-opacity = 0.95
 
 # A positive value enables blurring of the background when background-opacity
 # is less than 1. The value is the blur radius to apply. A value of 20

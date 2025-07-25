@@ -2,6 +2,7 @@
 {
   imports = [
     ./core.nix
+    ./fonts.nix
     ./apps/zsh.nix
     ./apps/git.nix
     ./apps/ghostty/ghostty.nix

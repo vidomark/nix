@@ -51,7 +51,6 @@
 
       "raycast"
       "stats"
-      "font-monaspace"
       "karabiner-elements"
       "kindavim"
       "hammerspoon"

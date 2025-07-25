@@ -66,7 +66,8 @@
       glow # Markdown previewer in the terminal
     ]
     ++ (lib.optionals stdenv.isDarwin [
-      mas # MacOS utility to install official applications
+      mas # Utility to install official applications
+      rectangle # Window manager
     ]);
 
   apps.karabiner = {

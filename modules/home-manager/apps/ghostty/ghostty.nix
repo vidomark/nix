@@ -9,7 +9,6 @@
     installBatSyntax = true;
     settings = {
       theme = "gruvbox-material";
-      font-family = "Monaspace Neon";
       font-size = 30;
       background-opacity = 0.8;
       background-blur-radius = 70;

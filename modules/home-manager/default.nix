@@ -25,8 +25,7 @@
   ];
 
   home = {
-    inherit homeDirectory;
-    username = username;
+    inherit homeDirectory username;
     stateVersion = "24.11";
   };
 

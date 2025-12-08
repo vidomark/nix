@@ -3,25 +3,36 @@
   imports = [
     ./packages.nix
     ./fonts.nix
-    ./apps/zsh.nix
-    ./apps/git.nix
-    ./apps/ghostty/ghostty.nix
-    ./apps/alacritty.nix
-    ./apps/kitty.nix
-    ./apps/tmux.nix
-    ./apps/aerospace.nix
-    ./apps/jankyborders.nix
-    ./apps/nvim/nvim.nix
-    ./apps/starship.nix
-    ./apps/fzf.nix
-    ./apps/zoxide.nix
-    ./apps/bat.nix
-    ./apps/btop.nix
-    ./apps/gpg.nix
-    ./apps/rust-overlay.nix
-    ./apps/yazi/yazi.nix
-    ./apps/karabiner/karabiner.nix
-    ./apps/ideavim/ideavim.nix
+
+    # Shell
+    ./apps/shell/zsh.nix
+
+    # Terminals
+    ./apps/terminals/ghostty/ghostty.nix
+    ./apps/terminals/alacritty.nix
+    ./apps/terminals/kitty.nix
+    ./apps/terminals/tmux.nix
+
+    # Development
+    ./apps/development/git.nix
+    ./apps/development/nvim/nvim.nix
+    ./apps/development/ideavim/ideavim.nix
+    ./apps/development/delta.nix
+    ./apps/development/rust-overlay.nix
+
+    # Window Management
+    ./apps/window-management/aerospace.nix
+    ./apps/window-management/jankyborders.nix
+
+    # Utilities
+    ./apps/utilities/bat.nix
+    ./apps/utilities/btop.nix
+    ./apps/utilities/gpg.nix
+    ./apps/utilities/yazi/yazi.nix
+    ./apps/utilities/starship.nix
+    ./apps/utilities/fzf.nix
+    ./apps/utilities/zoxide.nix
+    ./apps/utilities/karabiner/karabiner.nix
   ];
 
   home = {

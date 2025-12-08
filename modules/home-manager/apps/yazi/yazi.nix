@@ -33,7 +33,7 @@ in
           mediainfo
           full-border
           chmod
-        sudo
+          sudo
           rich-preview
           glow
           diff

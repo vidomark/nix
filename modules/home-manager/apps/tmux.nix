@@ -18,7 +18,6 @@
       tmuxPlugins.tmux-sessionx
       tmuxPlugins.yank
       tmuxPlugins.tmux-which-key
-      tmuxPlugins.better-mouse-mode
       {
         plugin = tmuxPlugins.fuzzback;
         extraConfig = ''

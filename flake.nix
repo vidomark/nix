@@ -63,17 +63,12 @@
       ...
     }:
     let
-      system = "aarch64-darwin";
-      homeDirectory = "/Users/${username}";
       username = "vido.mark";
       useremail = "vidomark42@gmail.com";
-      specialArgs = inputs // {
-        inherit
-          username
-          useremail
-          system
-          homeDirectory
-          ;
+      system = "aarch64-darwin";
+      homeDirectory = "/Users/${username}";
+      specialArgs = {
+        inherit username useremail system homeDirectory;
       };
       pkgs = import nixpkgs {
         inherit system;

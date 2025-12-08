@@ -1,12 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home.packages =
     with pkgs;
     [
-      # Terminal Emulators
-      alacritty
-      kitty
-
       # Archives and Compression
       zip # Utility for packaging and compressing files
       unzip # Extractor for .zip files
@@ -57,7 +53,7 @@
       rich-cli # Command line interface to rich
       glow # Markdown previewer in the terminal
     ]
-    ++ (lib.optionals stdenv.isDarwin [
+    ++ (lib.optionals pkgs.stdenv.isDarwin [
       mas # Utility to install official applications
       rectangle # Window manager
     ]);

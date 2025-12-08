@@ -66,9 +66,10 @@
       username = "vido.mark";
       useremail = "vidomark42@gmail.com";
       system = "aarch64-darwin";
+      hostname = "macbook";
       homeDirectory = "/Users/${username}";
       specialArgs = {
-        inherit username useremail system homeDirectory;
+        inherit username useremail system hostname homeDirectory;
       };
       pkgs = import nixpkgs {
         inherit system;

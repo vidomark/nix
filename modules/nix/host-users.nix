@@ -1,7 +1,7 @@
 {
   homeDirectory,
   username,
-  system,
+  hostname,
   ...
 }:
 #############################################################
@@ -10,9 +10,9 @@
 #
 #############################################################
 {
-  networking.hostName = system;
-  networking.computerName = system;
-  system.defaults.smb.NetBIOSName = system;
+  networking.hostName = hostname;
+  networking.computerName = hostname;
+  system.defaults.smb.NetBIOSName = hostname;
 
   users.users."${username}" = {
     home = homeDirectory;

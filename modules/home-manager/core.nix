@@ -58,10 +58,6 @@
       rectangle # Window manager
     ]);
 
-  apps.karabiner = {
-    enable = pkgs.stdenv.hostPlatform.isDarwin;
-  };
-
   home.sessionVariables = {
     LESSOPEN = "|lesspipe.sh %s";
   };

@@ -28,8 +28,8 @@
 
     history = {
       expireDuplicatesFirst = true;
-      save = 100000000;
-      size = 1000000000;
+      save = 100000;
+      size = 100000;
     };
     initContent = ''
       ZVM_VI_INSERT_ESCAPE_BINDKEY=jk

@@ -1,7 +1,7 @@
 { username, homeDirectory, ... }:
 {
   imports = [
-    ./core.nix
+    ./packages.nix
     ./fonts.nix
     ./apps/zsh.nix
     ./apps/git.nix

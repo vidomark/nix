@@ -2,6 +2,7 @@ _:
 {
   imports = [
     ./nix-core.nix
-    ./host-users.nix
+    ./networking.nix
+    ./users.nix
   ];
 }

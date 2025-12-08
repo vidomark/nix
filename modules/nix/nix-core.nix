@@ -5,8 +5,6 @@
     "flakes"
   ];
 
-  services.nix-daemon.enable = true;
-
   nixpkgs.config.allowUnfree = true;
 
   nix.package = pkgs.nix;

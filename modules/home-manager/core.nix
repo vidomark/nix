@@ -3,11 +3,13 @@
   home.packages =
     with pkgs;
     [
+      # Terminal Emulators
+      alacritty
+      kitty
+
       # Archives and Compression
       zip # Utility for packaging and compressing files
-      xz # High-ratio data compression program
       unzip # Extractor for .zip files
-      p7zip # Command-line version of 7-Zip, a file archiver
 
       # Programming Languages and Tools
       nodejs_20 # JavaScript runtime built on Chrome's V8 engine
@@ -28,8 +30,6 @@
       jq # Command-line JSON processor
       yq-go # Command-line YAML processor
       zsh-vi-mode # Command-line vim bindings
-      aria2 # Multi-protocol & multi-source download utility
-      socat # Multipurpose relay for bidirectional data transfer
       nmap # Network discovery and security auditing tool
       fd # Simple, fast, and user-friendly alternative to `find`
       htop # Interactive process viewer
@@ -43,21 +43,13 @@
       curl
       wget
       clipboard-jh
-      jmeter
 
       # System Tools
       file # Determines file type
       which # Locates a command
-      gnused # GNU version of the stream editor `sed`
-      gnutar # GNU version of the tar archiving utility
-      gawk # GNU version of the text processing language `awk`
-      zstd # Fast compression algorithm
-      caddy # Web server with automatic HTTPS
       gnupg # GNU Privacy Guard for encryption and signing
-      just # Task runner for command execution
       stow # Symlink farm manager for managing dotfiles
       lesspipe # Less preprocessor
-      ouch # Command line utility for easily fompressign and decompressing files and directories
 
       # Miscellaneous
       tree # Displays directory structure in a tree format

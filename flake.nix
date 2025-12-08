@@ -6,17 +6,17 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/release-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/release-25.11";
 
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.05-darwin";
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.11-darwin";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
     darwin = {
-      url = "github:lnl7/nix-darwin";
+      url = "github:lnl7/nix-darwin/nix-darwin-25.11";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
@@ -79,8 +79,8 @@
         inherit system;
         overlays = [
           alacritty-theme.overlays.default
-          yazi.overlays.default
           rust-overlay.overlays.default
+          yazi.overlays.default
         ];
       };
     in

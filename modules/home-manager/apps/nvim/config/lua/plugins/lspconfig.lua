@@ -1,15 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
-  init = function()
-    local keys = require("lazyvim.plugins.lsp.keymaps").get()
-    keys[#keys + 1] = { "<leader>cr", false }
-    table.insert(keys, { "<leader>rn", vim.lsp.buf.rename, desc = "Rename" })
-    table.insert(keys, { "gi", vim.lsp.buf.implementation, desc = "Goto Implementation" })
-  end,
-
   dependencies = {
     "jose-elias-alvarez/typescript.nvim",
-    "oxalica/nil",
   },
   ---@class PluginLspOpts
   opts = {
@@ -18,7 +10,15 @@ return {
       tsserver = {},
       pyright = {},
       eslint = {},
-      nil_ls = {},
+      jsonnet_ls = {},
+      ["*"] = {
+        keys = {
+          { "<leader>cr", false }, -- Disable the default rename keymap
+          { "<leader>rn", vim.lsp.buf.rename, desc = "Rename" },
+          { "gi", vim.lsp.buf.implementation, desc = "Goto Implementation" },
+          { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", has = "definition", desc = "Goto Definition" },
+        },
+      },
     },
     ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
     setup = {
@@ -35,17 +35,8 @@ return {
           end
         end)
       end,
-      nil_ls = function()
-        require("lspconfig").nil_ls.setup({
-          settings = {
-            ["nil"] = {
-              formatting = {
-                command = { "nixfmt" },
-              },
-            },
-          },
-        })
-        return true
+      jsonnet_ls = function(_, opts)
+        require("lspconfig").jsonnet_ls.setup({})
       end,
 
       -- Specify * to use this function as a fallback for any server

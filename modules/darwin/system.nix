@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 ###################################################################################
 #
 #  macOS's System configuration
@@ -12,15 +12,10 @@
 {
   system = {
     stateVersion = 5;
-    # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
-    activationScripts.postUserActivation.text = ''
-      # activateSettings -u will reload the settings from the database and apply them to the current session,
-      # so we do not need to logout and login again to make the changes take effect.
-      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-    '';
+
+    primaryUser = username;
 
     defaults = {
-      # customize dock
       dock = {
         autohide = true;
         show-recents = false; # disable recent apps
@@ -32,7 +27,6 @@
         wvous-br-corner = 4; # bottom-right - Desktop
       };
 
-      # customize finder
       finder = {
         _FXShowPosixPathInTitle = true; # show full path in finder title
         AppleShowAllExtensions = true; # show all file extensions
@@ -42,7 +36,6 @@
         ShowStatusBar = true; # show status bar
       };
 
-      # customize trackpad
       trackpad = {
         Clicking = true; # enable tap to click
         TrackpadRightClick = true; # enable two finger right click
@@ -155,7 +148,7 @@
   };
 
   # Add ability to used TouchID for sudo authentication
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
   # this is required if you want to use darwin's default shell - zsh

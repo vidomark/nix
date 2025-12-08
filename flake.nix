@@ -85,7 +85,7 @@
         ${system} = darwin.lib.darwinSystem {
           inherit pkgs system specialArgs;
           modules = [
-            ./modules/nix
+            ./modules/shared
             ./modules/darwin
             home-manager.darwinModules.home-manager
             {

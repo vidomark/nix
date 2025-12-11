@@ -82,7 +82,7 @@
     in
     {
       darwinConfigurations = {
-        ${system} = darwin.lib.darwinSystem {
+        ${hostname} = darwin.lib.darwinSystem {
           inherit pkgs system specialArgs;
           modules = [
             ./modules/shared

@@ -2,7 +2,7 @@
 {
   imports = [
     ./packages.nix
-    ./fonts.nix
+    ./apps/fonts.nix
 
     # Shell
     ./apps/shell/zsh.nix

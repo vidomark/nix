@@ -1,7 +1,7 @@
 _:
 {
   imports = [
-    ./nix-core.nix
+    ./nix.nix
     ./networking.nix
     ./users.nix
   ];

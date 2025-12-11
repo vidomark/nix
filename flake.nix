@@ -1,3 +1,13 @@
+#############################################################
+#
+#  Flake Entry Point
+#  Nix Darwin and Standalone Home Manager configuration
+#
+#  Usage:
+#    darwin-rebuild switch --flake .#macbook
+#    home-manager switch --flake .#vido.mark (standalone)
+#
+#############################################################
 {
   description = "Nix Darwin and Standalone Home Manager configuration";
 
@@ -7,7 +17,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-25.11";
-
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.11-darwin";
 
     home-manager = {
@@ -43,7 +52,6 @@
     };
 
     yazi.url = "github:sxyazi/yazi";
-
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 

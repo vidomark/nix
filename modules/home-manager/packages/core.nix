@@ -32,7 +32,6 @@
       lsd # Modern replacement for `ls` with color support
       openssl # Toolkit for SSL/TLS and cryptography
       tldr # Simplified and community-driven man pages
-      zoxide # Smarter `cd` command for navigating directories
       tree-sitter # Incremental parsing system for syntax highlighting
       diff-so-fancy # Enhances `git diff` output with color and formatting
       direnv # Environment switcher for shell sessions
@@ -43,7 +42,6 @@
       # System Tools
       file # Determines file type
       which # Locates a command
-      gnupg # GNU Privacy Guard for encryption and signing
       stow # Symlink farm manager for managing dotfiles
       lesspipe # Less preprocessor
 

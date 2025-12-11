@@ -1,38 +1,38 @@
 { username, homeDirectory, ... }:
 {
   imports = [
-    ./packages.nix
-    ./apps/fonts.nix
+    ./packages/core.nix
+    ./packages/fonts.nix
 
     # Shell
-    ./apps/shell/zsh.nix
+    ./packages/shell/zsh.nix
 
     # Terminals
-    ./apps/terminals/ghostty/ghostty.nix
-    ./apps/terminals/alacritty.nix
-    ./apps/terminals/kitty.nix
-    ./apps/terminals/tmux.nix
+    ./packages/terminals/ghostty/ghostty.nix
+    ./packages/terminals/alacritty.nix
+    ./packages/terminals/kitty.nix
+    ./packages/terminals/tmux.nix
 
     # Development
-    ./apps/development/git.nix
-    ./apps/development/nvim/nvim.nix
-    ./apps/development/ideavim/ideavim.nix
-    ./apps/development/delta.nix
-    ./apps/development/rust-overlay.nix
+    ./packages/development/git.nix
+    ./packages/development/nvim/nvim.nix
+    ./packages/development/ideavim/ideavim.nix
+    ./packages/development/delta.nix
+    ./packages/development/rust-overlay.nix
 
     # Window Management
-    ./apps/window-management/aerospace.nix
-    ./apps/window-management/jankyborders.nix
+    ./packages/window-management/aerospace.nix
+    ./packages/window-management/jankyborders.nix
 
     # Utilities
-    ./apps/utilities/bat.nix
-    ./apps/utilities/btop.nix
-    ./apps/utilities/gpg.nix
-    ./apps/utilities/yazi/yazi.nix
-    ./apps/utilities/starship.nix
-    ./apps/utilities/fzf.nix
-    ./apps/utilities/zoxide.nix
-    ./apps/utilities/karabiner/karabiner.nix
+    ./packages/utilities/bat.nix
+    ./packages/utilities/btop.nix
+    ./packages/utilities/gpg.nix
+    ./packages/utilities/yazi/yazi.nix
+    ./packages/utilities/starship.nix
+    ./packages/utilities/fzf.nix
+    ./packages/utilities/zoxide.nix
+    ./packages/utilities/karabiner/karabiner.nix
   ];
 
   home = {

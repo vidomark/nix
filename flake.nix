@@ -1,3 +1,13 @@
+#############################################################
+#
+#  Flake Entry Point
+#  Nix Darwin and Standalone Home Manager configuration
+#
+#  Usage:
+#    darwin-rebuild switch --flake .#macbook
+#    home-manager switch --flake .#vido.mark (standalone)
+#
+#############################################################
 {
   description = "Nix Darwin and Standalone Home Manager configuration";
 
@@ -7,7 +17,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-25.11";
-
     nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-25.11-darwin";
 
     home-manager = {
@@ -43,7 +52,6 @@
     };
 
     yazi.url = "github:sxyazi/yazi";
-
     alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
@@ -63,17 +71,13 @@
       ...
     }:
     let
-      system = "aarch64-darwin";
-      homeDirectory = "/Users/${username}";
       username = "vido.mark";
       useremail = "vidomark42@gmail.com";
-      specialArgs = inputs // {
-        inherit
-          username
-          useremail
-          system
-          homeDirectory
-          ;
+      system = "aarch64-darwin";
+      hostname = "macbook";
+      homeDirectory = "/Users/${username}";
+      specialArgs = {
+        inherit username useremail system hostname homeDirectory;
       };
       pkgs = import nixpkgs {
         inherit system;
@@ -86,10 +90,10 @@
     in
     {
       darwinConfigurations = {
-        ${system} = darwin.lib.darwinSystem {
+        ${hostname} = darwin.lib.darwinSystem {
           inherit pkgs system specialArgs;
           modules = [
-            ./modules/nix
+            ./modules/shared
             ./modules/darwin
             home-manager.darwinModules.home-manager
             {

@@ -1,13 +1,14 @@
 _:
 #############################################################
 #
-#  Darwin Module Entry Point
-#  macOS-specific system configuration
+#  Shared Module Entry Point
+#  Configuration shared across darwin and NixOS
 #
 #############################################################
 {
   imports = [
-    ./system.nix
-    ./homebrew.nix
+    ./nix.nix
+    ./networking.nix
+    ./users.nix
   ];
 }

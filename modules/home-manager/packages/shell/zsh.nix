@@ -31,7 +31,14 @@
       size = 100000;
     };
     initContent = ''
-      ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+      function zvm_config() {
+        ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+        ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
+        ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+        ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+        ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
+        ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+      }
 
       zvm_after_init() {
         if [ -f "${pkgs.fzf}/share/fzf/key-bindings.zsh" ]; then

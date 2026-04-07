@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -30,9 +30,18 @@
       save = 100000;
       size = 100000;
     };
-    initContent = ''
-      ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-
+    initContent = lib.mkMerge [
+      (lib.mkOrder 850 ''
+        function zvm_config() {
+          ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+          ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
+          ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+          ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
+          ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
+          ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+        }
+      '')
+      ''
       zvm_after_init() {
         if [ -f "${pkgs.fzf}/share/fzf/key-bindings.zsh" ]; then
           source "${pkgs.fzf}/share/fzf/key-bindings.zsh"
@@ -69,7 +78,8 @@
       if [ -z "$INTELLIJ_ENVIRONMENT_READER" ] && command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
         exec tmux
       fi
-    '';
+    ''
+    ];
 
     plugins = with pkgs; [
       {

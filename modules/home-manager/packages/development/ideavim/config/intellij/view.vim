@@ -54,8 +54,8 @@ let g:WhichKeyDesc_view_build                                       = "<leader>v
 map <leader>vb <Action>(ActivateBuildToolWindow)
 
 " Activate Version Control Tool Window
-let g:WhichKeyDesc_view_git                                         = "<leader>vg Version Control View"
-map <leader>vg <Action>(ActivateVersionControlToolWindow)
+let g:WhichKeyDesc_view_git                                         = "<leader>vG Version Control View"
+map <leader>vG <Action>(ActivateVersionControlToolWindow)
 
 " Activate Messages Tool Window
 let g:WhichKeyDesc_view_messages                                    = "<leader>vM Messages View"
@@ -74,8 +74,8 @@ let g:WhichKeyDesc_view_coverage                                    = "<leader>v
 map <leader>vC <Action>(ActivateCoverageToolWindow)
 
 " Activate Gradle Tool Window
-let g:WhichKeyDesc_view_gradle                                      = "<leader>vG Gradle View"
-map <leader>vG <Action>(ActivateGradleToolWindow)
+let g:WhichKeyDesc_view_gradle                                      = "<leader>vg Gradle View"
+map <leader>vg <Action>(ActivateGradleToolWindow)
 
 " Activate Endpoints Tool Window
 let g:WhichKeyDesc_view_endpoints                                   = "<leader>ve Endpoints View"

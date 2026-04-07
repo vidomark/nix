@@ -59,6 +59,7 @@
       bind-key & kill-window
       bind-key x kill-pane
 
+      set -g status-keys vi
       set -g detach-on-destroy on
       set -g set-clipboard on
       set -g status-position top

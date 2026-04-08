@@ -10,6 +10,8 @@ return {
   },
   opts = {
     ensure_installed = {
+      "fourmolu",
+      "hlint",
       "jsonnet-language-server",
     },
   },
